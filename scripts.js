@@ -21,10 +21,12 @@
 //   ctaText: "Shop now",
 // },
 // ];
+let slider = document.querySelector('#slider');
 let slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
+let autoplay;
 const controls = document.querySelector('#controls');
-let sliderImg = document.querySelector('#sliderImg img');
+// let sliderImg = document.querySelector('#sliderImg img');
 // const prevSlideArrow = document.querySelector('#prevSlide');
 // const nextSlideArrow = document.querySelector('#nextSlide');
 
@@ -33,11 +35,9 @@ function nextSlide() {
   if(currentSlide < slides.length - 1) {
   slides[currentSlide].classList.remove('active');
   currentSlide += 1;
-  console.log(currentSlide);
   } else {
     slides[currentSlide].classList.remove('active');
     currentSlide = 0;
-    console.log(currentSlide);
   }
   slides[currentSlide].classList.add('active');
 }
@@ -46,15 +46,24 @@ function prevSlide() {
   if(currentSlide === 0) {
     slides[currentSlide].classList.remove('active');
     currentSlide = slides.length - 1;
-    console.log(currentSlide);
   }
   //otherwise go back one
   else {
     slides[currentSlide].classList.remove('active');
     currentSlide -= 1;
-    console.log(currentSlide);
   }
   slides[currentSlide].classList.add('active');
+}
+
+function autoplaySlider() {
+  autoplay = setInterval(() => {
+    nextSlide();
+  }, 6000);
+}
+function pauseSliderAutoplay() {
+  console.log('pausing');
+  clearInterval(autoplay);
+  slider.addEventListener('mouseout', autoplaySlider, true);
 }
 function handleArrowClick(e) {
  if(e.target.className === "arrowRight") {
@@ -74,5 +83,7 @@ function handleKey(e) {
     nextSlide();
   }
 }
+autoplaySlider();
 controls.addEventListener('click', handleArrowClick);
 window.addEventListener('keyup', handleKey);
+slider.addEventListener('mouseover', pauseSliderAutoplay);

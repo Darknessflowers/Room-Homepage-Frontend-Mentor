@@ -6,6 +6,18 @@ body {
   font-family: "Spartan", sans-serif;
   font-size: 12px;
 }
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  margin: 0 0 23px 0;
+}
+h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 700;
+}
 a {
   color: #fff;
 }
@@ -32,14 +44,29 @@ nav ul {
   flex-wrap: wrap;
 }
 nav a {
-  padding: 0 10px;
+  margin: 0 10px 5px 10px;
   text-transform: lowercase;
   text-decoration: none;
   color: #fff;
+  position: relative;
 }
 nav a:visited,
 nav a:active {
   color: #fff;
+}
+nav li a::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background: #fff;
+  left: 50%;
+  bottom: -6px;
+  transition: width linear 0.2s;
+  width: 0;
+  transform: translate(-50%, 0);
+}
+nav li a:hover::after {
+  width: 70%;
 }
 #slider {
   position: relative;
@@ -62,25 +89,29 @@ nav a:active {
   display: flex;
   align-items: center;
   position: relative;
-  transition: opacity 0.2s step-end;
-  /* transform: translateX(120%);
+  transition: opacity 0.4s linear;
+  /* /* transform: translateX(120%); */
   opacity: 0;
-  transition: transform 0.5s linear, opacity 2s linear; */
 }
-/* #slider .active #caption {
-  transform: translateX(0%);
+#slider .active #caption {
+  /* transform: translateX(0%); */
   opacity: 1;
-  transition: transform 0s linear, opacity 0.1s linear;
-  /* transition: opacity 0.4s step-end; 
-} */
+  /* transition: transform 0s linear, opacity 0.1s linear; */
+  transition: opacity 0.3s step-end;
+}
 #captionInner {
-  background: ;
   display: flex;
   flex-direction: column;
   justify-content: center;
   /* height: 100%; */
 }
-
+#captionInner p {
+  color: #a0a0a0;
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: 500;
+  margin-top: 0;
+}
 .slide #sliderImg,
 .slide #caption {
   pointer-events: none;
@@ -109,6 +140,10 @@ nav a:active {
   justify-content: center;
   cursor: pointer;
 }
+#prevSlide:hover,
+#nextSlide:hover {
+  background: #444444;
+}
 #controlsContainer {
   grid-template-columns: 58fr 42fr;
   display: grid;
@@ -127,7 +162,46 @@ nav a:active {
   justify-content: center;
   padding: 47px;
 }
+#about p {
+  color: #a0a0a0;
+  line-height: 1.7;
+  font-weight: 500;
+}
 #bottomHalf {
   display: grid;
   grid-template-columns: auto 1fr auto;
+}
+.shopNow {
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  margin-top: 20px;
+  display: flex;
+}
+.shopNow:hover {
+  color: #a0a0a0;
+}
+.shopNow::after {
+  content: url("./images/icon-arrow.svg");
+  margin-left: 10px;
+}
+.shopNow:hover::after {
+  content: url("./images/icon-arrow-hover.svg");
+}
+
+@media only screen and (max-width: 600px) {
+  #slider {
+    width: 100%;
+  }
+  #slider .slide {
+    grid-template-columns: 1fr;
+  }
+  #slider #caption {
+    padding: 0px;
+  }
+  #controlsContainer {
+    grid-template-columns: 1fr;
+    justify-items: end;
+  }
 }
