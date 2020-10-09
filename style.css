@@ -31,10 +31,13 @@ header {
 header .wrap {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 .wrap {
   width: 1277px;
   margin: 0 auto;
+  max-width: 100%;
 }
 nav ul {
   margin: 0;
@@ -73,17 +76,6 @@ nav li a:hover::after {
   overflow: hidden;
   display: grid;
 }
-#slider .slide {
-  display: grid;
-  grid-template-columns: 58fr 42fr;
-  grid-column: 1/-1;
-  grid-row: 1/-1;
-}
-#sliderImg img {
-  min-width: 100%;
-  max-width: 100%;
-  display: block;
-}
 #slider #caption {
   padding: 120px 96px;
   display: flex;
@@ -92,34 +84,21 @@ nav li a:hover::after {
   transition: opacity 0.4s linear;
   /* /* transform: translateX(120%); */
   opacity: 0;
+  flex-wrap: wrap;
 }
-#slider .active #caption {
-  /* transform: translateX(0%); */
-  opacity: 1;
-  /* transition: transform 0s linear, opacity 0.1s linear; */
-  transition: opacity 0.3s step-end;
-}
-#captionInner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* height: 100%; */
-}
-#captionInner p {
+
+.caption p {
   color: #a0a0a0;
   font-size: 12px;
   line-height: 1.6;
   font-weight: 500;
   margin-top: 0;
 }
-.slide #sliderImg,
+/* .slide #sliderImg,
 .slide #caption {
   pointer-events: none;
   opacity: 0;
-}
-.slide #caption {
-  transition: opacity 0.4s step-end;
-}
+} */
 .slide #sliderImg {
   transition: opacity linear 0.8s;
 }
@@ -145,12 +124,11 @@ nav li a:hover::after {
   background: #444444;
 }
 #controlsContainer {
-  grid-template-columns: 58fr 42fr;
-  display: grid;
-  width: 100%;
-  height: auto;
-  position: absolute;
-  bottom: 0;
+  z-index: 100;
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  align-self: end;
+  transform: translateX(100%);
 }
 #controls {
   display: flex;
@@ -169,15 +147,21 @@ nav li a:hover::after {
 }
 #bottomHalf {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  /* grid-template-columns: auto 1fr auto; */
+  grid-template-columns: 31fr 38fr 31fr;
+}
+#bottomHalf img {
+  width: 100%;
+  object-fit: cover;
 }
 .shopNow {
   color: #000;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
+  flex-wrap: wrap;
 }
 .shopNow:hover {
   color: #a0a0a0;
@@ -190,7 +174,73 @@ nav li a:hover::after {
   content: url("./images/icon-arrow-hover.svg");
 }
 
+#slider.test {
+  display: grid;
+  grid-template-columns: 58fr 42fr;
+}
+#imageContainer,
+#captionContainer {
+  display: grid;
+}
+#imageContainer {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  width: 100%;
+}
+#imageContainer img {
+  opacity: 0;
+  max-width: 100%;
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  width: 100%;
+  object-fit: contain;
+  object-fit: cover;
+  height: 100%;
+  object-position: center;
+  pointer-events: none;
+  transition: opacity 0.8s linear;
+  /* transition: opacity 0.8s linear; */
+}
+#captionContainer .caption {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s step-end;
+}
+#imageContainer .active {
+  transition: opacity 0.8s linear;
+}
+#imageContainer .active,
+#captionContainer .active {
+  opacity: 1;
+  pointer-events: all;
+}
+#imageHalf {
+  display: grid;
+  justify-items: end;
+}
+#captionContainer {
+  place-content: center;
+  /* padding: 100px; */
+  padding: 120px 96px;
+}
+.openMenu {
+  display: none;
+  cursor: pointer;
+}
+.attribution {
+  padding: 15px;
+}
+@media only screen and (max-width: 1277px) {
+  .wrap {
+    width: 90%;
+  }
+}
 @media only screen and (max-width: 600px) {
+  .wrap {
+    width: 1000%;
+  }
   #slider {
     width: 100%;
   }
@@ -201,7 +251,66 @@ nav li a:hover::after {
     padding: 0px;
   }
   #controlsContainer {
+    transform: translateX(0%);
+  }
+  #slider.test {
     grid-template-columns: 1fr;
-    justify-items: end;
+  }
+  #bottomHalf {
+    grid-template-columns: 1fr;
+  }
+  #bottomHalf img {
+    min-width: 100%;
+  }
+  header {
+    padding: 0;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    transition: all linear 0.2s;
+  }
+  header .wrap {
+    padding: 0 24px;
+    max-width: 100%;
+  }
+  header.open {
+    background: #fff;
+  }
+  nav {
+    display: flex;
+    width: 100%;
+  }
+  nav ul {
+    display: none;
+    margin-left: 0;
+    order: 1;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  header.open .logo {
+    pointer-events: none;
+    visibility: hidden;
+  }
+  .openMenu {
+    display: block;
+  }
+  header.open nav ul {
+    display: flex;
+  }
+  nav a,
+  nav a:visited,
+  nav a:active {
+    color: #000;
+  }
+  .logo {
+    position: absolute;
+    left: 50%;
+    margin-left: -30.5px;
+  }
+  #captionContainer {
+    padding: 70px 32px;
+  }
+  h1 {
+    font-size: 28px;
   }
 }
