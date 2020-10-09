@@ -94,11 +94,6 @@ nav li a:hover::after {
   font-weight: 500;
   margin-top: 0;
 }
-/* .slide #sliderImg,
-.slide #caption {
-  pointer-events: none;
-  opacity: 0;
-} */
 .slide #sliderImg {
   transition: opacity linear 0.8s;
 }
@@ -141,13 +136,14 @@ nav li a:hover::after {
   padding: 47px;
 }
 #about h2 {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   margin-top: 0;
 }
 #about p {
   color: #a0a0a0;
   line-height: 1.7;
   font-weight: 500;
+  margin-top: 0;
 }
 #bottomHalf {
   display: grid;
