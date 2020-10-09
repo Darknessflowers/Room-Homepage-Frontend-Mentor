@@ -151,7 +151,7 @@ nav li a:hover::after {
   grid-template-columns: 31fr 38fr 31fr;
 }
 #bottomHalf img {
-  width: 100%;
+  /* width: 100%; */
   /* object-fit: cover; */
 }
 .shopNow {
@@ -207,7 +207,7 @@ nav li a:hover::after {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.6s step-end;
-  transform: translateY(-10px);
+  transform: translateY(-15px);
 }
 #imageContainer .active {
   transition: opacity 0.8s linear;
