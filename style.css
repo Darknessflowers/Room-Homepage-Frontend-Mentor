@@ -140,6 +140,10 @@ nav li a:hover::after {
   justify-content: center;
   padding: 47px;
 }
+#about h2 {
+  margin-bottom: 5px;
+  margin-top: 0;
+}
 #about p {
   color: #a0a0a0;
   line-height: 1.7;
