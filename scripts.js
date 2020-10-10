@@ -38,7 +38,6 @@ function prevSlide() {
   }
   images[currentSlide].classList.add('active');
   captions[currentSlide].classList.add('active');
-
 }
 
 function autoplaySlider() {
