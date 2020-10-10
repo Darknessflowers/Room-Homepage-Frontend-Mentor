@@ -133,7 +133,7 @@ nav li a:hover::after {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 47px;
+  padding: 47px 35px;
 }
 #about h2 {
   margin-bottom: 10px;
