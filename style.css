@@ -82,11 +82,9 @@ nav li a:hover::after {
   align-items: center;
   position: relative;
   transition: opacity 0.4s linear;
-  /* /* transform: translateX(120%); */
   opacity: 0;
   flex-wrap: wrap;
 }
-
 .caption p {
   color: #a0a0a0;
   font-size: 12px;
@@ -103,7 +101,6 @@ nav li a:hover::after {
   opacity: 1;
   transition: opacity linear 0.8s;
 }
-
 #prevSlide,
 #nextSlide {
   background: #000;
@@ -147,12 +144,7 @@ nav li a:hover::after {
 }
 #bottomHalf {
   display: grid;
-  /* grid-template-columns: auto 1fr auto; */
   grid-template-columns: 31fr 38fr 31fr;
-}
-#bottomHalf img {
-  /* width: 100%; */
-  /* object-fit: cover; */
 }
 .shopNow {
   color: #000;
@@ -173,7 +165,6 @@ nav li a:hover::after {
 .shopNow:hover::after {
   content: url("./images/icon-arrow-hover.svg");
 }
-
 #slider.test {
   display: grid;
   grid-template-columns: 58fr 42fr;
@@ -199,7 +190,6 @@ nav li a:hover::after {
   object-position: center;
   pointer-events: none;
   transition: opacity 0.8s linear;
-  /* transition: opacity 0.8s linear; */
 }
 #captionContainer .caption {
   grid-column: 1/-1;
@@ -223,7 +213,6 @@ nav li a:hover::after {
 }
 #captionContainer {
   place-content: center;
-  /* padding: 100px; */
   padding: 120px 96px;
 }
 .openMenu {
