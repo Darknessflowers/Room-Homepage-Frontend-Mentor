@@ -28,7 +28,7 @@ function prevSlide() {
   if(currentSlide === 0) {
     images[currentSlide].classList.remove('active');
     captions[currentSlide].classList.remove('active');
-    currentSlide = slides.length - 1;
+    currentSlide = images.length - 1;
   }
   //otherwise go back one
   else {
@@ -36,6 +36,7 @@ function prevSlide() {
     captions[currentSlide].classList.remove('active');
     currentSlide -= 1;
   }
+  // debugger;
   images[currentSlide].classList.add('active');
   captions[currentSlide].classList.add('active');
 }
