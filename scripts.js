@@ -26,15 +26,19 @@ function nextSlide() {
 function prevSlide() {
   //if the index of the slider is already at 0 go to the end
   if(currentSlide === 0) {
-    slides[currentSlide].classList.remove('active');
+    images[currentSlide].classList.remove('active');
+    captions[currentSlide].classList.remove('active');
     currentSlide = slides.length - 1;
   }
   //otherwise go back one
   else {
-    slides[currentSlide].classList.remove('active');
+    images[currentSlide].classList.remove('active');
+    captions[currentSlide].classList.remove('active');
     currentSlide -= 1;
   }
-  slides[currentSlide].classList.add('active');
+  images[currentSlide].classList.add('active');
+  captions[currentSlide].classList.add('active');
+
 }
 
 function autoplaySlider() {
