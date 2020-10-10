@@ -219,6 +219,10 @@ nav li a:hover::after {
   display: none;
   cursor: pointer;
 }
+#bottomHalf img {
+  width: 100%;
+  object-fit: cover;
+}
 .attribution {
   padding: 15px;
 }
@@ -250,8 +254,6 @@ nav li a:hover::after {
     grid-template-columns: 1fr;
   }
   #bottomHalf img {
-    width: 100%;
-    object-fit: cover;
     min-width: 100%;
   }
   header {
