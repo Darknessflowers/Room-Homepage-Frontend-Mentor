@@ -160,7 +160,7 @@ nav li a:hover::after {
 }
 .shopNow::after {
   content: url("./images/icon-arrow.svg");
-  margin-left: 10px;
+  margin-left: 25px;
 }
 .shopNow:hover::after {
   content: url("./images/icon-arrow-hover.svg");
