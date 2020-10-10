@@ -31,7 +31,7 @@ let autoplay;
 const controls = document.querySelector('#controls');
 let menuBtn = document.querySelector('.openMenu');
 let header = document.querySelector('header');
-let switchImgBreakpoint = window.matchMedia('(max-width: 600px)');
+let switchImgBreakpoint = window.matchMedia('(max-width: 800px)');
 
 // let sliderImg = document.querySelector('#sliderImg img');
 // const prevSlideArrow = document.querySelector('#prevSlide');
